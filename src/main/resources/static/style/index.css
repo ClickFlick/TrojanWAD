@@ -1,0 +1,270 @@
+body, html {
+    height: 100%;
+    margin: 0;
+    overflow-x:hidden;
+    background: linear-gradient(111.65deg, #646060 -1.12%, rgba(101, 97, 97, 0.991667) -1.11%, rgba(77, 73, 73, 0.0400456) 85.24%, rgba(77, 72, 72, 0) 97.44%, rgba(77, 73, 73, 0.0313721) 112.08%), #313132;
+  }
+
+.image{
+    background-image: url("../images/museum.png") ;
+    height: 100%; 
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow: auto;
+}
+
+
+h3 {
+    width: 50px;
+    height: 50px;
+    margin-left: 50px;
+    float: left;
+    color:rgba(229, 229, 229, 0.5);
+    font-family: 'Montserrat', serif;
+}
+
+li {
+	display: inline-block;
+	margin-left: 20px;
+    padding: 20px;
+    font-family:'Raleway', serif;
+    font-size: 16px;
+}
+
+ul {
+	text-align: right;
+	margin-right: 100px ;
+}
+
+a{
+    text-decoration: none;
+    color:rgba(229, 229, 229, 0.5);
+}
+
+.image h1{
+    position: absolute;
+    width: 500px;
+    height: 200px;
+    left: 10%;
+    top: 10%;
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 90px;
+    line-height: 110px;
+    text-align: center;
+    color: rgba(229, 229, 229, 0.9);
+}
+
+.image p{
+    position: absolute;
+    width: 500px;
+    height: 112px;
+    left: 10%;
+    top: 50%;
+    font-family: Raleway;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 22px;
+    line-height: 26px;
+    color: rgba(229, 229, 229, 0.7);
+}
+
+.image button{
+    position: absolute;
+    width: 150px;
+    height: 60px;
+    left: 20%;
+    top: 75%;
+    background: #C4C4C4;
+    mix-blend-mode: soft-light;
+    font-family: 'Raleway';
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 35px;
+    text-align: center;
+    color: rgba(229, 229, 229, 0.7);
+}
+
+.image img{
+    position: absolute;
+    width:  35%;
+    height: auto;
+    left: 55%;
+    top: 15%;
+}
+
+
+/* School trip */
+.image-book-1{
+    background-image: url("../images/school.png") ;
+    height: 100%; 
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow: auto;
+}
+
+.image-book-1 h1 {
+    position: absolute;
+    width: 715px;
+    height: 10px;
+    top: 50%;
+    left: 40%;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 90px;
+    line-height: 110px;
+    text-align: center;
+    color: #FFFFFF;
+    opacity: 0.5;
+}
+
+.image-book-1 p,
+.image-book-2 p,
+.image-book-3 p{
+    position: absolute;
+    width: 680px;
+    height: 70px;
+    left: 50%;
+    top: 70%;
+    font-family: 'Raleway';
+    font-size: 20px;
+    font-weight: 300;
+    line-height: 26px;
+    color: #FFFFFF;
+    opacity: 0.5;
+}
+
+.image-book-1 h4,
+.image-book-2 h4,
+.image-book-3 h4{
+    position: absolute;
+    width: 680px;
+    height: 70px;
+    left: 43%;
+    top: 55%;
+    font-family: 'Raleway';
+    font-weight: 300;
+    line-height: 26px;
+    color: #FFFFFF;
+    opacity: 0.5;
+}
+
+.image-book-1 button,
+.image-book-2 button,
+.image-book-3 button{
+    position: absolute;
+width: 150px;
+height: 60px;
+top:85%;
+left :60%;
+
+background: #C4C4C4;
+opacity: 0.7;
+
+
+
+font-family: 'Raleway';
+font-style: normal;
+font-weight: 300;
+font-size: 18px;
+line-height: 20px;
+
+color: #FFFFFF;
+}
+
+#number{
+    position: absolute;
+width: 135px;
+height: 120px;
+left: 15%;
+top: 10%;
+
+font-family: 'Montserrat';
+font-style: normal;
+font-weight: 600;
+font-size: 80px;
+line-height: 122px;
+/* identical to box height */
+
+
+color: #FFFFFF;
+}
+
+#number a{
+    font-family: 'Montserrat';
+font-style: normal;
+font-weight: 600;
+font-size: 80px;
+line-height: 122px;
+/* identical to box height */
+
+
+color: #FFFFFF;
+}
+
+.image-book-2{
+    background-image: url("../images/events.png") ;
+    height: 100%; 
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow: auto;
+}
+
+.image-book-2 h1,
+.image-book-3 h1 {
+    position: absolute;
+    width: 1000px;
+    height: 100px;
+    top: 50%;
+    left: 30%;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 90px;
+    line-height: 110px;
+    text-align: center;
+    color: #FFFFFF;
+    opacity: 0.5;
+}
+
+.image-book-3{
+    background-image: url("../images/guide.png") ;
+    height: 100%; 
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow: auto;
+}
+
+.Locations{
+    background-image: url("../images/locations.png") ;
+    height: 100%; 
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow: auto;
+}
+
+.Locations h1{
+position: absolute;    
+width: 600px;
+height: 260px;
+left: auto;
+
+font-family: 'Montserrat';
+font-style: normal;
+font-weight: 600;
+font-size: 100px;
+line-height: 122px;
+
+color: #FFFFFF;
+opacity: 0.5;
+
+transform: rotate(-90deg);
+}

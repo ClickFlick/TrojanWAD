@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mus</title>
+    <link rel="stylesheet" th:href="@{/style/index.css}">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Raleway:wght@500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="Locations">
+        
+            <h3>MUS</h3>
+
+
+        <ul>
+            <li><a th:href="@{/index}">Home</a></li>
+            <li><a th:href="@{/books}">Book</a></li>
+            <li><a href="#">Clipboard</a></li>
+            <li><a th:href="@{/locations}">Locations</a></li>
+            </li>
+        </ul>
+
+            <h1>Roadmap</h1>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Name </th>
+                    <th>Address </th>
+                    <th>Capacity </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="museum : ${museums}">
+                    <td><span th:text="${museum.name}"></span></td>
+                    <td><span th:text="${museum.address}"></span></td>
+                    <td><span th:text="${museum.capacity}"></span></td>
+                </tr>
+            </tbody>
+        </table>
+            
+
+            
+        </div>
+
+  
+</body>
+</html>
