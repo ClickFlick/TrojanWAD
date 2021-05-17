@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -20,6 +21,9 @@
             <li><a th:href="@{/books}">Book</a></li>
             <li><a href="#">Clipboard</a></li>
             <li><a th:href="@{/locations}">Locations</a></li>
+            <li sec:authorize="!isAuthenticated()"><a th:href="@{/login}">Login</a> </li>
+            <li ><a th:href="@{/logout}">Logout</a> </li>
+            <li sec:authorize="!isAuthenticated()"><a th:href="@{/register}">Register</a> </li>
             </li>
         </ul>
 
@@ -28,7 +32,7 @@
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
             <button>Organize an event.</button>
 
-            <p id="number"> <a th:href="@{/booksbookOne}">&larr;</a>2/3<a th:href="@{/books/bookThree}">&rarr;</a></p>
+            <p id="number"> <a th:href="@{/books/bookOne}">&larr;</a>2/3<a th:href="@{/books/bookThree}">&rarr;</a></p>
 
             
         

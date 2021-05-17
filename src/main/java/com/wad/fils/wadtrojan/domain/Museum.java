@@ -5,6 +5,7 @@ import lombok.*;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 
 @Data
 @NoArgsConstructor
@@ -21,5 +22,8 @@ public class Museum {
     private String address;
     private int capacity;
     private boolean allowGroups;
+
+    @Lob
+    private Byte[] image;
 
 }

@@ -7,4 +7,5 @@ import java.util.List;
 
 public interface LocationRepository extends CrudRepository<Museum,Long> {
     List<Museum> findAll();
+
 }

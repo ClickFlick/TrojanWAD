@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+  <style>
+    .first_section {
+      width: 600px;
+      float: left;
+    }
+
+    #title1 {
+      margin-left: 190px;
+      margin-top: -100px;
+    }
+
+    .topnav {
+      padding-top: 130px;
+      position: relative
+    }
+
+    .topnav a {
+      padding-left: 80px;
+    }
+
+    .inside-label {
+      width: 30%;
+      float: inherit;
+    }
+
+    .inside-input {
+      width: 40%;
+    }
+
+    .inside-class {
+      padding-left: px;
+    }
+
+    div.container {
+      width: 600px;
+    }
+
+
+    .inside-input:invalid {
+      border: 2px dashed red;
+    }
+
+    .inside-input:valid {
+      border: 2px solid black;
+    }
+
+    .inside-input:invalid:required {
+      border: 2px solid black;
+    }
+
+    .container2 {
+      width: 500px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .buttons {
+      margin-left: 25%
+    }
+
+    .error_text {
+      color: red;
+    }
+    table {
+      width:50%;
+    }
+    table, th, td {
+      border: 1px solid black;
+      border-collapse: collapse;
+    }
+    th, td {
+      padding: 15px;
+      text-align: left;
+    }
+    #t01 tr:nth-child(even) {
+      background-color: #eee;
+    }
+    #t01 tr:nth-child(odd) {
+      background-color: #fff;
+    }
+    #t01 th {
+      background-color: black;
+      color: white;
+    }
+
+    #t01 {
+      margin-left: -80px;
+    }
+    * {
+      box-sizing: border-box;
+    }
+
+    /* Style the search field */
+    form.example input[type=text] {
+      padding: 10px;
+      font-size: 17px;
+      border: 1px solid grey;
+      float: left;
+      width: 80%;
+      background: #f1f1f1;
+    }
+
+    /* Style the submit button */
+    form.example button {
+      float: left;
+      width: 20%;
+      padding: 10px;
+      background: #2196F3;
+      color: white;
+      font-size: 17px;
+      border: 1px solid grey;
+      border-left: none; /* Prevent double borders */
+      cursor: pointer;
+    }
+
+    form.example button:hover {
+      background: #0b7dda;
+    }
+
+    /* Clear floats */
+    form.example::after {
+      content: "";
+      clear: both;
+      display: table;
+    }
+
+
+  </style>
+  <meta charset="UTF-8">
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+  <title>Trojan</title>
+</head>
+<body>
+<div class="container2">
+
+  <ul>
+    <li><a th:href="@{/index}">Home</a></li>
+    <li><a th:href="@{/books}">Book</a></li>
+    <li><a href="#">Clipboard</a></li>
+    <li><a th:href="@{/locations}">Locations</a></li>
+    <li sec:authorize="!isAuthenticated()"><a th:href="@{/login}">Login</a> </li>
+    <li ><a th:href="@{/logout}">Logout</a> </li>
+    <li sec:authorize="!isAuthenticated()"><a th:href="@{/register}">Register</a> </li>
+    </li>
+  </ul>
+
+  <h3>Registration Form</h3>
+
+  <div class="container">
+    <form method="post"  th:object="${user}">
+
+      <label class="inside-label" for="name">Name</label>
+      <input class="inside-input" type="text" id="name" name="name" value="" required>
+
+
+      <label class="inside-label" for="username">Username</label>
+      <input class="inside-input" type="text" id="username" name="username" value="" required>
+      <label th:text="${errorMSG}" class="error_text"></label>
+
+
+      <div>
+        <label class="inside-label" for="password">Password</label>
+        <input class="inside-input" name="password" id="password" onkeyup="check()" type="password" required>
+
+        <label class="inside-label" for="confirm_password">Repeat Password</label>
+        <input class="inside-input" type="password" name="confirm_password" id="confirm_password"
+               onkeyup="check()" required>
+        <label name="password_error" class="error_text"></label>
+
+        <span id="message"></span>
+      </div>
+      <label class="inside-label" for="email">Email</label>
+      <input class="inside-input" type="email" id="email" name="email" value="" required>
+
+      <div class="inside-class">
+
+        <label>Gender: </label>
+        <label for="male">Male</label>
+        <input type="radio" value="male" name="gender" id="male" required>
+
+        <label for="male">Female</label>
+        <input type="radio" value="female" name="gender">
+
+
+      </div>
+
+
+      <label class="inside-label" for="tel">Telephone</label>
+      <input class="inside-input" type="tel" name="tel" id="tel" required pattern="[0-9]{10}">
+
+      <div>
+        <label for="country">Country:</label>
+
+        <select name="country" id="country">
+
+          <option value="Romania">Romania</option>
+          <option value="USA">USA</option>
+          <option value="Germany">Germany</option>
+          <option value="Netherlands">Netherlands</option>
+
+
+        </select>
+
+      </div>
+
+
+      <div class="buttons">
+        <input type="submit" value="Submit">
+        <input type="reset" value="Reset">
+
+      </div>
+
+
+    </form>
+
+  </div>
+</div>
+<script>
+  var check = function () {
+    if (document.getElementById('password').value ===
+            document.getElementById('confirm_password').value) {
+      document.getElementById('message').style.color = 'green';
+      document.getElementById('message').innerHTML = 'matching';
+    } else {
+      document.getElementById('message').style.color = 'red';
+      document.getElementById('message').innerHTML = 'not matching';
+    }
+  }</script>
+
+
+</body>
+</html>
