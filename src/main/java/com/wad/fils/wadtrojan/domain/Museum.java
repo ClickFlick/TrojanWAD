@@ -26,4 +26,7 @@ public class Museum {
     @Lob
     private Byte[] image;
 
+    @Lob
+    private String museumDesc;
+
 }

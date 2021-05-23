@@ -20,6 +20,13 @@
       width: 50%;
       padding: 10px;
     }
+    #mainText{
+      margin-left: 650px;
+      margin-right: 100px;
+      font-size: 30px;
+      color: white;
+
+    }
 
     /* Clear floats after the columns */
     .row:after {
@@ -70,9 +77,10 @@
     </li>
   </ul>
 
-  <img th:src="@{'/locations/' + ${locationInfo.id} + '/museumImg'}" width="600" height="400" />
+  <img th:src="@{'/locations/' + ${locationInfo.id} + '/museumImg'}" width="400" height="250" style="margin-left: 100px" />
   <h1 th:text="${locationInfo.name}"></h1>
 
+  <p id="mainText" th:text="${locationInfo.museumDesc}"></p>
 
 
 
