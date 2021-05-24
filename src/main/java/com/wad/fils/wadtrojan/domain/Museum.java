@@ -2,10 +2,9 @@ package com.wad.fils.wadtrojan.domain;
 
 import lombok.*;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Lob;
+import javax.persistence.*;
+import java.util.Arrays;
+import java.util.Set;
 
 @Data
 @NoArgsConstructor
@@ -22,6 +21,7 @@ public class Museum {
     private String address;
     private int capacity;
     private boolean allowGroups;
+    private int howManyPeople;
 
     @Lob
     private Byte[] image;
@@ -29,4 +29,20 @@ public class Museum {
     @Lob
     private String museumDesc;
 
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "museum")
+    private Set<User> users;
+
+    @Override
+    public String toString() {
+        return "Museum{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", address='" + address + '\'' +
+                ", capacity=" + capacity +
+                ", allowGroups=" + allowGroups +
+                ", howManyPeople=" + howManyPeople +
+                ", museumDesc='" + museumDesc + '\'' +
+                ", user=" + users +
+                '}';
+    }
 }

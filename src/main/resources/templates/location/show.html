@@ -51,6 +51,13 @@
       background-color: #666;
       color: white;
     }
+
+    #cartButton{
+      margin-left: 900px;
+      width: 100px;
+      height: 40px;
+
+    }
   </style>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -82,7 +89,10 @@
 
   <p id="mainText" th:text="${locationInfo.museumDesc}"></p>
 
+  <form th:action="@{'/locations/' + ${locationInfo.id} + '/reserve'}" method="post" th:object="${museum}">
 
+    <input id="cartButton" type="submit" value="Reserve Seat">
+  </form>
 
   </div>
 

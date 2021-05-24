@@ -7,4 +7,6 @@ import java.util.List;
 public interface LocationService {
     List<Museum> findAll();
     Museum findById(Long id);
+
+    void save(Museum museum);
 }

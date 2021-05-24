@@ -5,4 +5,5 @@ import com.wad.fils.wadtrojan.domain.User;
 public interface UserService {
     boolean save(User user);
     boolean loginCheck(User user);
+    User findById(Long id);
 }

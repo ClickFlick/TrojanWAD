@@ -1,11 +1,14 @@
 package com.wad.fils.wadtrojan.services;
 
+import com.wad.fils.wadtrojan.domain.Museum;
 import com.wad.fils.wadtrojan.domain.User;
 import com.wad.fils.wadtrojan.repositories.UserRepository;
 import org.springframework.security.core.parameters.P;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+
+import java.util.Optional;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -35,5 +38,16 @@ public class UserServiceImpl implements UserService {
     @Override
     public boolean loginCheck(User user) {
         return false;
+    }
+
+    @Override
+    public User findById(Long id) {
+        Optional<User> optionalUser = userRepository.findById(id);
+
+        if (optionalUser.isEmpty()) {
+            throw new RuntimeException("Location not found!");
+        }
+
+        return optionalUser.get();
     }
 }

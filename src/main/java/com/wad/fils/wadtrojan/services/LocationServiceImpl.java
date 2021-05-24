@@ -28,9 +28,16 @@ public class LocationServiceImpl implements LocationService {
         Optional<Museum> optionalMuseum = locationRepository.findById(id);
 
         if (optionalMuseum.isEmpty()) {
-            throw new RuntimeException("Recipe Not Found!");
+            throw new RuntimeException("Location not found!");
         }
 
         return optionalMuseum.get();
     }
+
+    @Override
+    public void save(Museum museum) {
+        locationRepository.save(museum);
+    }
+
+
 }
