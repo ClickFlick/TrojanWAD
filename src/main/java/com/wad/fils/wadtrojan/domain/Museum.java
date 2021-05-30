@@ -32,17 +32,10 @@ public class Museum {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "museum")
     private Set<User> users;
 
-    @Override
-    public String toString() {
-        return "Museum{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", address='" + address + '\'' +
-                ", capacity=" + capacity +
-                ", allowGroups=" + allowGroups +
-                ", howManyPeople=" + howManyPeople +
-                ", museumDesc='" + museumDesc + '\'' +
-                ", user=" + users +
-                '}';
-    }
+    @OneToOne
+    private BookMuseum museum;
+
+
+
+
 }

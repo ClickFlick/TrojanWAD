@@ -19,7 +19,7 @@
         <ul>
             <li><a th:href="@{/index}">Home</a></li>
             <li><a th:href="@{/books}">Book</a></li>
-            <li><a th:href="@{/cartMuseum}">Clipboard</a></li>
+            <li><a th:href="@{/clipBoard}">Clipboard</a></li>
             <li><a th:href="@{/locations}">Locations</a></li>
             <li sec:authorize="!isAuthenticated()"><a th:href="@{/login}">Login</a> </li>
             <li ><a th:href="@{/logout}">Logout</a> </li>
@@ -30,7 +30,9 @@
             <h4>Mon-Fri</h4>
             <h1>SCHOOL TRIPS</h1>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-            <button>Book a trip.</button>
+        <form th:action="@{/foreignGuide}">
+            <button >Book a trip</button>
+        </form>
 
             <p id="number"> <a th:href="@{/books/bookThree}">&larr;</a>1/3<a th:href="@{/books/bookTwo}">&rarr;</a></p>
 

@@ -6,31 +6,43 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mus</title>
-  <link rel="stylesheet" th:href="@{/style/index.css}">
+  <link rel="stylesheet"  th:href="@{/style/index.css}">
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Raleway:wght@500&display=swap" rel="stylesheet">
+  <link href="https://ro.allfont.net/allfont.css?fonts=agency-fb" rel="stylesheet" type="text/css" />
 </head>
 <body>
-<div class="image-book-3">
+<div class="Clipboard">
 
   <h3>MUS</h3>
-
+  <div class="vertical-line"></div>
 
   <ul>
     <li><a th:href="@{/index}">Home</a></li>
-    <li><a th:href="@{/books}">Book</a></li>
+    <li><a th:href="@{/books/bookOne}">Book</a></li>
     <li><a th:href="@{/clipBoard}">Clipboard</a></li>
     <li><a th:href="@{/locations}">Locations</a></li>
     <li sec:authorize="!isAuthenticated()"><a th:href="@{/login}">Login</a> </li>
-    <li ><a th:href="@{/logout}">Logout</a> </li>
+    <li ><a  th:href="@{/logout}">Logout</a> </li>
     <li sec:authorize="!isAuthenticated()"><a th:href="@{/register}">Register</a> </li>
-    </li>
   </ul>
 
-  <h1 th:text=" ${museum != null} ? ${museum.capacity}+ ' Tickets remain' : '' "> </h1>
+  <table>
+
+
+    <tr>
+      <td>
+        <p>Blog post 1</p>
+        <img src="resources/images/guide.png" th:src="@{images/guide.png}" alt="" style="width:300px; height:200px;"/>
+        <p class="lorem">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. <a href="#" class="blog-post">Read more..</a></p>
+
+      </td>
+
+    </tr>
 
 
 
+  </table>
 
 
 

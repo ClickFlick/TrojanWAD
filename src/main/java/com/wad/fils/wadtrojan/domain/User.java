@@ -35,6 +35,8 @@ public class User implements UserDetails {
     @ManyToOne
     private Museum museum;
 
+    @OneToOne
+    private BookMuseum booking;
 
     public User(String username, String password) {
         this.username = username;

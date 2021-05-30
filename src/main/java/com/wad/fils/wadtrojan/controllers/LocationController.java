@@ -13,6 +13,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashSet;
+import java.util.Set;
+
 @Controller
 @Slf4j
 @RequestMapping("/locations")
@@ -36,14 +39,20 @@ public class LocationController {
 
 
     @PostMapping("/{id}/reserve")
-    public String sendLocation(@AuthenticationPrincipal User user , @ModelAttribute Museum museum, Model model, @PathVariable String id){
+    public String sendLocation(@AuthenticationPrincipal User user ,
+                               @ModelAttribute Museum museum, Model model,
+                               @PathVariable String id){
         Museum museum1 = locationService.findById(Long.valueOf(id));
         System.out.println(museum1 +"post");
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        museum1.setCapacity(museum1.getCapacity()-1);
 
+
+        museum1.setCapacity(museum1.getCapacity()-1);
         user.setMuseum(museum1);
         System.out.println(user);
+
+        locationService.save(museum1);
+        userService.saveUpdate(user);
+
         model.addAttribute("museum", museum1);
 
         return "/cartMuseum";

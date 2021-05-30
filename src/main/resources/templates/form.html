@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mus</title>
+  <link rel="stylesheet"  th:href="@{/style/index.css}">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Raleway:wght@500&display=swap" rel="stylesheet">
+  <link href="https://ro.allfont.net/allfont.css?fonts=agency-fb" rel="stylesheet" type="text/css" />
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+
+  </style>
+</head>
+<body>
+<div class="image">
+
+
+  <h3>MUS</h3>
+  <div class="vertical-line height"></div>
+
+
+  <ul>
+    <li><a th:href="@{/index}">Home</a></li>
+    <li><a th:href="@{/books/bookOne}">Book</a></li>
+    <li><a th:href="@{/clipboard}">Clipboard</a></li>
+    <li><a th:href="@{/locations}">Locations</a></li>
+    <li sec:authorize="!isAuthenticated()"><a th:href="@{/login}">Login</a> </li>
+    <li ><a th:href="@{/logout}">Logout</a> </li>
+    <li sec:authorize="!isAuthenticated()"><a th:href="@{/register}">Register</a> </li>
+  </ul>
+
+
+  <form class="form" th:object="${newBooking}" method="post">
+
+    <label for="name">Name:</label><br>
+    <input type="text" id="name" name="name" required><br>
+
+    <label for="lastName">Last Name:</label><br>
+    <input type="text" id="lastName" name="lastName" required><br>
+
+    <label for="email">Email:</label><br>
+    <input type="email" id="email" name="email" required><br>
+
+    <label for="telephone">Telephone:</label><br>
+    <input type="number" id="telephone" name="telephone" required><br>
+
+
+  <label for="museum" >Museum:</label><br>
+    <select name="museum" id="museum" th:field="*{museumName}" >
+      <option th:each="c : ${museum}" th:value="${c.id}" th:text="${c.name}"></option>
+      <!--<option value="romania">Romania</option>
+      <option value="uk">United Kingdom</option>
+      <option value="us">United States</option>
+      <option value="australia">Australia</option>-->
+    </select><br>
+
+
+
+    <label for="type">Type of ticket:</label><br>
+    <select name="type" id="type">
+      <option value="ForeignGuide">Foreign guide.</option>
+      <option value="SchoolTrip">School trip.</option>
+      <option value="Event">Event.</option>
+      <option value="NormalVisit">Normal visit.</option>
+    </select><br>
+
+    <label for="no_of_tickets">Number of tickets:</label><br>
+    <select name="no_of_tickets" id="no_of_tickets">
+      <option value="one">1</option>
+      <option value="two">2</option>
+      <option value="three">3</option>
+      <option value="four">4</option>
+      <option value="five">5</option>
+      <option value="six">6</option>
+      <option value="seven">7</option>
+      <option value="eight">8</option>
+      <option value="nine">9</option>
+      <option value="ten">10</option>
+
+    </select><br>
+
+    <label for="hour">Hour:</label><br>
+    <select name="hour" id="hour">
+      <option value="nine">9</option>
+      <option value="ninehalf">9:30</option>
+      <option value="ten">10</option>
+      <option value="tenhalf">10:30</option>
+      <option value="eleven">11</option>
+      <option value="elevenhalf">11:30</option>
+      <option value="twelve">12</option>
+      <option value="twelvehalf">12:30</option>
+      <option value="thirteen">13</option>
+      <option value="thirteenhalf">13:30</option>
+      <option value="fourteen">14</option>
+      <option value="fourteenhalf">14:30</option>
+      <option value="fifteen">15</option>
+      <option value="fifteenhalf">15:30</option>
+      <option value="sixteen">16</option>
+      <option value="sixteenhalf">16:30</option>
+      <option value="seventeen">17</option>
+      <option value="seventeenhalf">17:30</option>
+      <option value="eighteen">18</option>
+      <option value="eighteenhalf">18:30</option>
+      <option value="nineteen">19</option>
+      <option value="nineteenhalf">19:30</option>
+      <option value="twenty">20</option>
+      <option value="twentyhalf">20:30</option>
+    </select><br>
+
+
+
+
+
+
+    <input type="submit"  id="submit">
+
+
+
+  </form>
+
+
+</div>
+
+
+</body>
+</html>

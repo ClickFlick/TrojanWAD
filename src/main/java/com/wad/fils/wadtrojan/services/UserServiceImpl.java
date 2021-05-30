@@ -8,6 +8,8 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -24,8 +26,10 @@ public class UserServiceImpl implements UserService {
     public boolean save(User user) {
         PasswordEncoder bcrypt = new BCryptPasswordEncoder();
         user.setPassword(bcrypt.encode(user.getPassword()));
-        String username = userRepository.findByUsername(user.getUsername()).toString();
-        if (username.equals(user.getUsername())){
+        System.out.println(user.getUsername());
+
+       //String username = userRepository.findByUsername(user.getUsername()).toString();
+        if (userRepository.findByUsername(user.getUsername()) == null){
             userRepository.save(user);
             return true;
         }else {
@@ -45,9 +49,21 @@ public class UserServiceImpl implements UserService {
         Optional<User> optionalUser = userRepository.findById(id);
 
         if (optionalUser.isEmpty()) {
-            throw new RuntimeException("Location not found!");
+            throw new RuntimeException("User not found!");
         }
 
         return optionalUser.get();
+    }
+
+    @Override
+    public void saveUpdate(User user) {
+        userRepository.save(user);
+    }
+
+    @Override
+    public List<User> showAll() {
+        List<User> users = new LinkedList<>();
+        userRepository.findAll().iterator().forEachRemaining(users::add);
+        return users;
     }
 }
